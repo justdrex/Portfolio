@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>justdrex | Skills</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #111111;
+        --muted: #666666;
+        --border: #e8e8e8;
+        --max: 860px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: "Jersey 10", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+      }
+      a:hover { border-bottom-color: currentColor; }
+
+      .page {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 10;
+      }
+
+      .nav-inner {
+        width: 100%;
+        margin: 0;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex: 0 0 auto;
+        font-size: 22px;
+        color: var(--text);
+      }
+
+      /* no underline on brand */
+      .brand,
+      .brand:hover,
+      .brand:focus {
+        border-bottom-color: transparent !important;
+      }
+      .brand * {
+        border-bottom: none !important;
+      }
+
+      .logo {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .nav-link {
+        font-size: 22px;
+        color: var(--muted);
+      }
+
+      .content {
+        flex: 1;
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        padding: 56px 18px 72px;
+        letter-spacing: 1px;
+      }
+      .content h1 {
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: clamp(30px, 5vw, 44px);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin: 0 0 18px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 18px;
+        margin: 0 0 40px;
+        max-width: 70ch;
+        line-height: 1.6;
+      }
+
+      /* projects */
+      .projects {
+        display: grid;
+        gap: 22px;
+      }
+
+      .project {
+        border: 1px solid var(--border);
+        padding: 20px 18px;
+      }
+
+      .project-title {
+        font-size: 28px;
+        margin: 0 0 6px;
+      }
+
+      .project-desc {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .project-desc-a {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+        text-decoration-line: underline;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 18px;
+      }
+
+      footer {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        padding: 22px 18px 28px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b0b0c;
+          --text: #f5f5f5;
+          --muted: #a6a6a6;
+          --border: #202023;
+        }
+        .nav { background: rgba(11, 11, 12, 0.8); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-inner">
+          <a class="brand" href="homepage.html">
+            <img src="assets/logo.png" class="logo" alt="logo" />
+          </a>
+        </div>
+      </nav>
+
+      <main class="content">
+        <h1>Skills</h1>
+        <p class="subtitle">
+          A selection of things I’ve built or worked on — mostly cybersecurity related.
+        </p>
+
+        <div class="projects">
+          <div class="project">
+            <h2 class="project-title">Programming</h2>
+            <h3 class="project-desc-a">
+              Frontend Development
+            </h3>
+            <p class="project-desc">
+              HTML, CSS, JavaScript, React, Next.js
+            </p>
+            <h3 class="project-desc-a">
+              Backend Development
+            </h3>
+            <p class="project-desc">
+              Node.js, C#, Python
+          </div>
+
+          <div class="project">
+            <h2 class="project-title">Databases</h2>
+            <p class="project-desc">
+              PostgreSQL
+            </p>
+          </div>
+
+          <div class="project">
+            <h2 class="project-title">Cyber security</h2>
+              <h3 class="project-desc-a">
+              Defensive Security
+            </h3>
+            <p class="project-desc">
+              Wireshark, tcpdump, Nmap, Metaspolit, Burpsuite, CyberChef - and many more.
+            </p>
+            <h3 class="project-desc-a">
+              Offensive Security
+            </h3>
+            <p class="project-desc">
+              Nmap, Burpsuite, John the Ripper, Hydra, OWASP ZAP, Hashcat, Netcat - and many more.
+            </p>
+            <h3 class="project-desc-a">
+              OS knowledge
+            </h3>
+            <p class="project-desc">
+              Windows, Linux (various distros - mainly Kali and Ubuntu)
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div>© <span id="year"></span> justdrex</div>
+        <div>Built with clarity.</div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

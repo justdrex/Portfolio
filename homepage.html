@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>justdrex | Homepage</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #111111;
+        --muted: #666666;
+        --border: #e8e8e8;
+        --max: 760px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Jersey 10", system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+      }
+
+      a:hover {
+        border-bottom-color: currentColor;
+      }
+
+      /* Page */
+      .page {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+      .nav {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 10;
+      }
+
+      .nav-inner {
+        width: 100%;
+        margin: 0;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      /* Brand (logo + name) */
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex: 0 0 auto;
+        font-size: 22px;
+        color: var(--text);
+      }
+
+      /* ✅ no underline on brand at all */
+      .brand,
+      .brand:hover,
+      .brand:focus {
+        border-bottom-color: transparent !important;
+      }
+
+      .brand * {
+        border-bottom: none !important;
+      }
+
+      .logo {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      /* Ticker */
+      .ticker {
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .ticker-track {
+        display: inline-flex;
+        align-items: center;
+        gap: 60px;
+        padding-left: 100vw;
+        will-change: transform;
+        animation: marquee 30s linear infinite;
+      }
+
+      .ticker-item {
+        font-size: 24px;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+
+      /* ✅ fixed animation */
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Pause on hover */
+      .nav:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .ticker-track {
+          animation: none;
+          padding-left: 0;
+        }
+      }
+
+      /* Content */
+      .content {
+        flex: 1;
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        padding: 56px 18px 72px;
+        letter-spacing: 1px;
+      }
+      .content h1 {
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        font-size: clamp(30px, 5vw, 44px);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        margin: 0 0 12px;
+      }
+
+      .lead {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #222;
+        margin: 0 0 28px;
+        max-width: 62ch;
+      }
+
+      .grid {
+        display: grid;
+        gap: 26px;
+        margin-top: 36px;
+      }
+
+      .section-title {
+        font-size: clamp(20px, 4vw, 33px);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        margin: 0 0 12px;
+        text-transform: none;
+  }
+
+
+      .text {
+        margin: 0;
+        line-height: 1.85;
+        color: #222;
+        max-width: 70ch;
+      }
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .list li {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2px;
+      }
+
+      /* Projects link */
+      .projects-link {
+        margin-left: 10px;
+        color: var(--muted);
+      }
+
+      .projects-link:hover {
+        border-bottom-color: transparent;
+        opacity: 0.8;
+      }
+
+      /* Footer */
+      footer {
+        width: min(100%, var(--max));
+        margin: 0 auto;
+        padding: 22px 18px 28px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b0b0c;
+          --text: #f5f5f5;
+          --muted: #a6a6a6;
+          --border: #202023;
+        }
+
+        .nav {
+          background: rgba(11, 11, 12, 0.8);
+        }
+
+        .lead,
+        .text {
+          color: #e9e9e9;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 520px) {
+        .ticker-item {
+          font-size: 16px;
+        }
+
+        .brand {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- Navbar -->
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-inner">
+          <a class="brand" href="homepage.html" aria-label="Home">
+            <img src="assets/logo.png" class="logo" alt="logo" />
+          </a>
+
+          <div class="ticker" aria-label="Security quote">
+            <div class="ticker-track" role="marquee">
+              <span class="ticker-item">
+                “The only truly secure system is one that is powered off, cast in a block of
+                concrete and sealed in a lead-lined room with armed guards — and even then I have my
+                doubts.” — Gene Spafford
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main -->
+      <main class="content" id="top">
+        <h1>About me</h1>
+        <p class="lead">
+          Hi, my name is Adam, also known by the pseudonym justdrex. I’m 18 years old and based in
+          the Czech Republic. I focus on cybersecurity and everything related to it.
+        </p>
+
+        <div class="grid">
+          <section id="work">
+            <p class="section-title">Now</p>
+            <p class="text">
+              What you’re working on right now — a project, a role, a learning goal.
+            </p>
+          </section>
+
+          <section id="skills">
+            <p class="section-title">Skills</p>
+            <p class="text">
+              A list of skills I have acquired during my journey
+              <a href="skills.html" class="projects-link">View skills →</a>
+            </p>
+          </section>
+
+          <!-- ✅ Projects section under About me -->
+          <section id="projects">
+            <p class="section-title">Projects</p>
+            <p class="text">
+              A collection of things I’ve built & worked on.
+              <a href="projects.html" class="projects-link">View projects →</a>
+            </p>
+          </section>
+
+          <section id="contact">
+            <p class="section-title">Contact</p>
+            <ul class="list">
+              <li><a href="mailto:adam@heglas.cz" target="_blank" rel="noreferrer">Email</a></li>
+              <li><a href="https://github.com/justdrex" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/adam-heglas-4638a1304/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+              <li><a href="http://discordapp.com/users/565866479808020487" target="_blank" rel="noreferrer">Discord</a></li>
+            </ul>
+          </section>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div>© <span id="year"></span> justdrex</div>
+        <div>Built with clarity.</div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
