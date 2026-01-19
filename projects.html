@@ -151,6 +151,11 @@
         font-size: 18px;
       }
 
+      .projects-link:hover {
+        border-bottom-color: transparent;
+        opacity: 0.8;
+      }
+
       footer {
         width: min(100%, var(--max));
         margin: 0 auto;
@@ -181,7 +186,7 @@
     <div class="page">
       <nav class="nav" aria-label="Primary">
         <div class="nav-inner">
-          <a class="brand" href="homepage.html">
+          <a class="brand" href="/home">
             <img src="assets/logo.png" class="logo" alt="logo" />
           </a>
         </div>
@@ -195,14 +200,12 @@
 
         <div class="projects">
           <div class="project">
-            <h2 class="project-title">Project Name #1</h2>
+            <h2 class="project-title">Micropython scripts for BadUSB</h2>
             <p class="project-desc">
-              Short description of the project — what it does and why it matters.
+              <a href="/MicroPyScripts" class="projects-link">View scripts →</a>
             </p>
             <div class="project-links">
               <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="#" target="_blank" rel="noreferrer">Live</a>
-              <a href="#" target="_blank" rel="noreferrer">Write-up</a>
             </div>
           </div>
 
