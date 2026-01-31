@@ -14,6 +14,8 @@ const server = http.createServer((req, res) => {
     serveHTML("skills.html", res);
   } else if (url === "/MicroPyScripts") {
     serveHTML("MicroPyScripts.html", res);
+  } else if (url === "/certifications") {
+    serveHTML("certifications.html", res);
   }
   // STATIC FILES
   else if (url.startsWith("/assets/") || url === "/script.js") {
