@@ -104,6 +104,44 @@
         border-radius: 8px;
       }
 
+.brand-switch {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo,
+.logo-text {
+  position: absolute;
+  transition: opacity 0.25s ease;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.logo-text {
+  font-size: 20px;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+/* hover efekt */
+.brand:hover .logo {
+  opacity: 0;
+}
+
+.brand:hover .logo-text {
+  opacity: 1;
+}
+
       /* Ticker */
       .ticker {
         flex: 1;
@@ -272,85 +310,109 @@
           font-size: 18px;
         }
       }
+      .zdrojaktext:hover {
+        border-bottom-color: transparent;
+      }
+      .tilde {
+  color: #2563eb;
+}
+
+/* univerzální stagger animace pro všechny bloky */
+.stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerFade 0.6s ease forwards;
+}
+
+/* keyframes */
+@keyframes staggerFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* zpoždění */
+.stagger:nth-child(1) {
+  animation-delay: 0.1s; /* About me h1 */
+}
+
+.stagger:nth-child(2) {
+  animation-delay: 0.25s; /* lead text */
+}
+
+/* Grid sekce zůstávají: */
+.grid section:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.grid section:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.grid section:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.grid section:nth-child(4) {
+  animation-delay: 1s;
+}
+
+.grid section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sectionReveal 0.6s ease forwards;
+}
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     </style>
   </head>
 
-  <body>
-    <div class="page">
-      <!-- Navbar -->
-      <nav class="nav" aria-label="Primary">
-        <div class="nav-inner">
-          <a class="brand" href="/home" aria-label="Home">
-            <img src="assets/logo.png" class="logo" alt="logo" />
-          </a>
-
-          <div class="ticker" aria-label="Security quote">
-            <div class="ticker-track" role="marquee">
-              <span class="ticker-item">
-                “The only truly secure system is one that is powered off, cast in a block of
-                concrete and sealed in a lead-lined room with armed guards - and even then I have my
-                doubts.” - Gene Spafford
-              </span>
-              
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <!-- Main -->
-      <main class="content" id="top">
-        <h1>About me</h1>
-        <p class="lead">
-          Hi, my name is Adam, also known by the pseudonym justdrex. I’m 18 years old and based in
-          the Czech Republic. I focus on cybersecurity and everything related to it.
-        </p>
-
-        <div class="grid">
-          <section id="work">
-            <p class="section-title">Now</p>
-            <p class="text">
-              What you’re working on right now — a project, a role, a learning goal.
-            </p>
-          </section>
-
-          <section id="skills">
-            <p class="section-title">Skills</p>
-            <p class="text">
-              A list of skills I have acquired during my journey
-              <a href="/skills" class="projects-link">View skills →</a>
-            </p>
-          </section>
-
-          <!-- ✅ Projects section under About me -->
-          <section id="projects">
-            <p class="section-title">Projects</p>
-            <p class="text">
-              A collection of things I’ve built & worked on.
-              <a href="/projects" class="projects-link">View projects →</a>
-            </p>
-          </section>
-
-          <section id="contact">
-            <p class="section-title">Contact</p>
-            <ul class="list">
-              <li><a href="mailto:adam@heglas.cz" target="_blank" rel="noreferrer">Email</a></li>
-              <li><a href="https://github.com/justdrex" target="_blank" rel="noreferrer">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/adam-heglas-4638a1304/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-              <li><a href="http://discordapp.com/users/565866479808020487" target="_blank" rel="noreferrer">Discord</a></li>
-            </ul>
-          </section>
-        </div>
-      </main>
-
-      <!-- Footer -->
-      <footer>
-        <div>© <span id="year"></span> justdrex</div>
-        <div>Built with clarity.</div>
-      </footer>
-    </div>
-
-    <script>
+  <body><div class="page"><!-- Navbar -->       <nav class="nav" aria-label="Primary">
+<div class="nav-inner"><a class="brand" href="/home" aria-label="Home">
+  <span class="brand-switch">
+    <img src="assets/logo.png" class="logo" alt="logo" />
+    <span class="logo-text"><span class="tilde">~</span> / home</span>
+  </span>
+</a>
+<div class="ticker" aria-label="Security quote">
+<div class="ticker-track" role="marquee"><span class="ticker-item">                 &ldquo;The only truly secure system is one that is powered off, cast in a block of                 concrete and sealed in a lead-lined room with armed guards - and even then I have my                 doubts.&rdquo; - Gene Spafford               </span></div>
+</div>
+</div>
+</nav>        <!-- Main -->       <main class="content" id="top">
+<h1 class="stagger">About me</h1>
+<p class="lead stagger">Hi, my name is Adam, also known by the pseudonym justdrex. I&rsquo;m 18 years old and based in           the Czech Republic. I focus on cybersecurity and everything related to it.</p>
+<div class="grid"><section id="work">
+<p class="section-title">Now</p>
+<p class="text">Currently working as editor-in-chief at <a href="https://zdrojak.cz" class="zdrojaktext" target="_blank" rel="noreferrer">Zdrojak.cz</a> </p>
+<p class="text">Looking for interships and other opportunities</p>
+</section>            <section id="skills">
+<p class="section-title">Skills</p>
+<p class="text">A list of skills I have acquired during my journey               <a href="/skills" class="projects-link">View skills &rarr;</a></p>
+</section>            <!-- ✅ Projects section under About me -->           <section id="projects">
+<p class="section-title">Projects</p>
+<p class="text">A collection of things I&rsquo;ve built &amp; worked on.               <a href="/projects" class="projects-link">View projects &rarr;</a></p>
+</section>            <section id="contact">
+<p class="section-title">Socials</p>
+<ul class="list">
+    <li><a href="mailto:adam@heglas.cz" target="_blank" rel="noreferrer">Email</a></li>
+    <li><a href="https://github.com/justdrex" target="_blank" rel="noreferrer">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/adam-heglas-4638a1304/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+    <li><a href="http://discordapp.com/users/565866479808020487" target="_blank" rel="noreferrer">Discord</a></li>
+    <li><a href="https://tryhackme.com/p/justdrex" target="_blank" rel="noreferrer">TryHackMe</a></li>
+</ul>
+</section></div>
+</main>        <!-- Footer -->       <footer>
+<div>&copy;  justdrex</div>
+<div>Built with clarity.</div>
+</footer></div>
+<script>
       document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+    </script></body>
 </html>
+		
